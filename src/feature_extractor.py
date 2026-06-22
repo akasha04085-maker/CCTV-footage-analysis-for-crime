@@ -18,9 +18,12 @@ class FeatureExtractor(torch.nn.Module):
     def forward(self, x):
         
         x = self.features(x)
+        print("Entering EfficientNet...")
         
         x = self.pool(x)
+        print("Feature shape:", x.shape)
         
         x = torch.flatten(x, 1)
+        print("Flatten shape:", x.shape)
         
         return x
